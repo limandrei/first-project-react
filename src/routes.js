@@ -1,18 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 
-import Home from './containers/Home'
-import Users from './containers/Users'
+import Home from './containers/Home';
+import Users from './containers/Users';
 
-function Routes(){
-    return(
-        
+function AppRoutes() {
+    return (
         <Router>
-            <Route exact path='/' component={Home}/>
-            <Route exact path='/usuarios' component={Users}/>
+            <Routes> 
+                <Route exact path='/' element={<Home />} /> 
+                <Route exact path='/usuarios' element={<Users />} /> 
+            </Routes>
         </Router>
-        
-    )
+    );
 }
 
-export default Routes;
+export default AppRoutes;
