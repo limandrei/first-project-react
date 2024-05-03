@@ -1,6 +1,6 @@
 import React, { useState, useRef} from 'react';
 import axios from 'axios';
-
+import {useNavigate} from 'react-router-dom';
 import People from '../../assets/people-talking.svg';
 import Arrow from '../../assets/arrow.svg';
 import {
@@ -17,6 +17,7 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const inputName = useRef();
   const inputAge = useRef();
+  const navigate = useNavigate();
 
   async function addNewUser() {
     const { data: newUser } = await axios.post("http://localhost:3001/users", {
@@ -25,6 +26,8 @@ const App = () => {
     });
 
     setUsers([...users, newUser])
+
+    navigate("/usuarios");
   }
 
   return (
